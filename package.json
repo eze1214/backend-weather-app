@@ -1,0 +1,35 @@
+{
+  "name": "weather-backend",
+  "version": "1.0.0",
+  "description": "Weather backend Fibertel challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "npx mocha 'test/apiTest.js'"
+  },
+  "author": "Dufau Ezequiel",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.1.0",
+    "express": "^4.17.1",
+    "ipapi.co": "^0.3.0",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^6.1.4",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
+  }
+}

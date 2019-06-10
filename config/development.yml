@@ -1,0 +1,7 @@
+server:
+  hostname: localhost
+  port: 3000
+  apiKey: cabd468f9311f58a6b950eeaf3b306e3
+
+logger:
+  level: debug
