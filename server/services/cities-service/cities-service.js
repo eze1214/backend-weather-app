@@ -2,6 +2,15 @@ const cities = require('../../models/cities');
 const httpCodes = require('config').get('httpCodes');
 
 class CitiesService {
+
+  filter(cityName) {
+    try {
+      return Promise.resolve(cities.filter(city => city.name.toLowerCase().includes(cityName.toLowerCase())));
+    } catch(error) {
+      return Promise.reject(error)
+    }
+  }
+
   get(cityId) {
     return new Promise((resolve, reject) => {
       const searchedCity = cities.find(city => city.id === cityId);

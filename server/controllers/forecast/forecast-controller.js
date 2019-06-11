@@ -11,10 +11,10 @@ const specific = function(request, response, next) {
     forecastService.getByCity(city)
   ])
     .then(responseCurrent => {
-      console.log(responseCurrent[1].data);
+      console.log(responseCurrent[1]);
       const resp = {
         location: responseCurrent[0],
-        weather: responseCurrent[1].data
+        weathers: responseCurrent[1]
       }
       response.status(httpCodes.success).send(resp);
     })
@@ -26,14 +26,13 @@ const current = function(request, response, next) {
   locationService.get(request.query.ip)
     .then(locationResponse => {
       location = locationResponse;
-      console.log(location);
       return citiesService.getByLocation(location.city, location.country);
     })
     .then(city => forecastService.getByCity(city.id))
     .then(weatherResponse => {
       const resp = {
         location: location,
-        weather: weatherResponse.data
+        weathers: weatherResponse
       }
       response.status(httpCodes.success).send(resp);
     })

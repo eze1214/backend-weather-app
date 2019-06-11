@@ -19,7 +19,6 @@ const specific = function(request, response, next) {
       response.status(httpCodes.success).send(resp);
     })
     .catch(error => {
-      console.log('eze');
       console.log(JSON.stringify(error), 'my fetch error');
       next(error)
     });
