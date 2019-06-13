@@ -11,7 +11,6 @@ const specific = function(request, response, next) {
     currentService.getByCity(city)
   ])
     .then(responseCurrent => {
-      console.log(responseCurrent[1], 'data');
       const resp = {
         location: responseCurrent[0],
         weather: responseCurrent[1]
@@ -29,7 +28,6 @@ const current = function(request, response, next) {
   locationService.get(request.query.ip)
     .then(locationResponse => {
       location = locationResponse;
-      console.log(location);
       return citiesService.getByLocation(location.city, location.country);
     })
     .then(city => currentService.getByCity(city.id))
