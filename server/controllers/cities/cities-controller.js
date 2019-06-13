@@ -6,12 +6,9 @@ const cities = function(request, response, next) {
   
     citiesService.filter(city)
       .then(filteredCities => {
-        console.log(filteredCities);
         response.status(httpCodes.success).send(filteredCities);
       })
       .catch(error => {
-        console.log(error);
-        console.log(JSON.stringify(error), 'my fetch error');
         next(error);
       });
   };

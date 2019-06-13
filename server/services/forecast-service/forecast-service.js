@@ -15,13 +15,17 @@ class ForecastService {
   }
 
   generateWeather(weather, time) {
-    return {
-      time: time,
-      temp: weather && weather.main && kelvinToCelsius(weather.main.temp),
-      maxTemperature: weather && weather.main && kelvinToCelsius(weather.main.temp_max),
-      minTemperature: weather && weather.main && kelvinToCelsius(weather.main.temp_min),
-      humidity: weather && weather.main && weather.main.humidity,
-      description: weather && weather.weather[0] && weather.weather[0].description,
+    try {
+      return {
+        time: time,
+        temp: kelvinToCelsius(weather.main.temp),
+        maxTemperature: kelvinToCelsius(weather.main.temp_max),
+        minTemperature: kelvinToCelsius(weather.main.temp_min),
+        humidity: weather.main.humidity,
+        conditions: weather.weather,
+      }
+    } catch (error){
+      throw (new Error(`Error creating weather object ${error}`))
     }
   }
 

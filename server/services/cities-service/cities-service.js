@@ -28,7 +28,6 @@ class CitiesService {
       if (searchedCity) {
         resolve(searchedCity);
       } else {
-        console.log(name);
         reject ({ message: 'Not found city', statusCode: httpCodes.notFound });
       }
     });

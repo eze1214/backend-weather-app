@@ -11,7 +11,6 @@ const specific = function(request, response, next) {
     forecastService.getByCity(city)
   ])
     .then(responseCurrent => {
-      console.log(responseCurrent[1]);
       const resp = {
         location: responseCurrent[0],
         weathers: responseCurrent[1]

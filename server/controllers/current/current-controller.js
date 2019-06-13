@@ -11,10 +11,10 @@ const specific = function(request, response, next) {
     currentService.getByCity(city)
   ])
     .then(responseCurrent => {
-      console.log(responseCurrent[1].data);
+      console.log(responseCurrent[1], 'data');
       const resp = {
         location: responseCurrent[0],
-        weather: responseCurrent[1].data
+        weather: responseCurrent[1]
       }
       response.status(httpCodes.success).send(resp);
     })
@@ -36,7 +36,7 @@ const current = function(request, response, next) {
     .then(weatherResponse => {
       const resp = {
         location: location,
-        weather: weatherResponse.data
+        weather: weatherResponse
       }
       response.status(httpCodes.success).send(resp);
     })
